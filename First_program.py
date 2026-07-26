@@ -5,15 +5,15 @@
 def sentence_maker(phrase):
     questions = ("who", "what", "where", "why", "how")
     capitalized = phrase.capitalize()
-    if phrase.startswith(questions):
+    if phrase.lower().startswith(questions):
         return "{}?".format(capitalized)
     else:
         return "{}.".format(capitalized)
 
 results = []
 while True:
-    user_input = input("Say something: ")
-    if user_input == "\end":
+    user_input = input("Type something: ")
+    if user_input == "end":
         break
     else:
         results.append(sentence_maker(user_input))
