@@ -5,19 +5,15 @@
 def sentence_maker(phrase):
     questions = ("who", "what", "where", "why", "how")
     capitalized = phrase.capitalize()
-    if phrase.lower().startswith(questions):
-        return "{}?".format(capitalized)
-    else:
-        return "{}.".format(capitalized)
+    
+    results = []
+    while True:
+        user_input = input("Type something: ")
+        if phrase.lower().startswith(questions):
+            return "{}?".format(capitalized)
+        elif user_input.strip() == "":
+            print("You didn't type anything. Try again.")
+        else:
+            return "{}.".format(capitalized)
 
-results = []
-while True:
-    user_input = input("Type something: ")
-    if user_input.lower() == "end":
-        break
-    elif user_input.strip() == "":
-        print("You didn't type anything. Try again."
-    else:
-        results.append(sentence_maker(user_input))
-
-print(" ".join(results))
+    print(" ".join(results))
